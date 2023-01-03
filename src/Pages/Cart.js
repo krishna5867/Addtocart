@@ -15,8 +15,11 @@ const Cart = () => {
     const handleRemove = (productId) => {
         dispatch(remove(productId));
         toast.success("Removed Successfully");
-
     };
+
+
+    
+
     useEffect(() => {
         setTotalAmount(products.reduce((acc, curr) => acc + curr.price, 0));
     }, [products]);
@@ -26,13 +29,22 @@ const Cart = () => {
             {
                 products.length > 0 ? (
                     <>
-                        <Container fluid className='d-lg-flex'>
+                        <Container fluid className='d-lg-flex gap-1'>
                             <ToastContainer position="top-right" autoClose={1000} />
-                            <div className='col-md-8 mx-2'>
+                            <div className='col-md-8'>
                                 <Row>
                                     <Container fluid className='mt-4'>
+                                        <Card className='mb-1'>
+                                            <CardBody className='d-flex justify-content-around'>
+                                                <div><b>IMAGE</b></div>
+                                                <div style={{ width: "20rem" }}><b>PRODUCT</b></div>
+                                                <div><b>PRICE</b></div>
+                                                <div><b>REMOVE</b></div>
+                                            </CardBody>
+                                        </Card>
                                         {products.map((product) => (
                                             <Card>
+
                                                 <CardBody key={product.id} className="d-flex justify-content-around mt-4">
                                                     <img src={product.image} alt="cartImg" className='mx-4' style={{ width: '4rem' }} />
                                                     <div style={{ width: "20rem" }}>
@@ -40,6 +52,11 @@ const Cart = () => {
                                                     </div>
                                                     <h5 className='mx-4 mt-4' >${product.price}</h5>
                                                     <div className='mt-3'>
+                                                        {/* <div>
+                                                            <button>-</button>
+                                                            <span>01</span>
+                                                            <button>+</button>
+                                                        </div> */}
                                                         <button
                                                             className="btn text-danger rounded-circle btn-lg"
                                                             onClick={() => handleRemove(product.id)}>
@@ -52,14 +69,20 @@ const Cart = () => {
                                     </Container>
                                 </Row>
                             </div>
-                            <div className='col-md-4 mx-2'>
-                                <Container fluid className='mt-4'>
+                            <div className='col-md-4'>
+                                <Container fluid className='mt-4 mb-4'>
                                     <Row>
-                                        <Card >
+                                        <Card>
                                             <CardBody>
-                                                <h3 className='mb-4 mt-4'>YOUR CART SUMMARY</h3>
-                                                <h5 className='mt-4 mb-2'>Toal Items : {products.length}</h5>
-                                                <h5 className='mb-5'>Total Amount : ${totalAmount}</h5>
+                                                <h3 className='mb-4'>YOUR CART SUMMARY</h3>
+                                                <div className='d-flex justify-content-around'>
+                                                    <div><h5 className='mt-4 mb-2'>Total Items :</h5></div>
+                                                    <div><h5 className='mt-4 mb-2'>{products.length}</h5></div>
+                                                </div>
+                                                <div className='d-flex justify-content-around mb-3'>
+                                                    <div><h5 className='mt-4 mb-2'>Toal Amount :</h5></div>
+                                                    <div><h5 className='mt-4 mb-2'>${totalAmount}</h5></div>
+                                                </div>
                                                 <button className='btn btn-warning'><h5>Checkout</h5></button>
                                             </CardBody>
                                         </Card>
