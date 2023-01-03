@@ -7,7 +7,7 @@ const Navbar = () => {
     return (
         <nav className="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
             <div className="container-fluid">
-                <Link className="navbar-brand mx-4" to="/"><b>Store</b></Link>
+                <Link className="navbar-brand mx-4" to="/"><h3> <b>Add To Cart</b></h3></Link>
                 <button
                     className="navbar-toggler"
                     type="button"
@@ -23,11 +23,11 @@ const Navbar = () => {
                 <div>
                     <ul className="navbar-nav">
                         <li className="nav-item">
-                            <Link className="nav-link active" aria-current="page" to="/">Home</Link>
+                            <Link className="nav-link active" aria-current="page" to="/"><h4>Home</h4></Link>
                         </li>
                         <li className="nav-item mx-4  position-relative">
-                            <Link className="nav-link" to="/cart"><i className="fas fa-cart-plus"></i>
-                                <span className="position-absolute top-1 start-100 translate-middle badge rounded-pill bg-success">
+                            <Link className="nav-link" to="/cart"><i className="fas fa-cart-plus fa-2x"></i>
+                                <span className="position-absolute top-1 start-100 translate-middle badge rounded-pill bg-danger">
                                     {items.length}
                                     <span className="visually-hidden">unread messages</span>
                                 </span>
