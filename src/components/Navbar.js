@@ -8,6 +8,8 @@ const Navbar = () => {
         <nav className="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
             <div className="container-fluid">
                 <Link className="navbar-brand mx-4" to="/"><h3> <b>Add To Cart</b></h3></Link>
+
+
                 <button
                     className="navbar-toggler"
                     type="button"
@@ -20,8 +22,9 @@ const Navbar = () => {
                 </button>
             </div>
             <div className="collapse navbar-collapse" id="navbarNav">
-                <div>
+                {/* <div className=''> */}
                     <ul className="navbar-nav">
+                        <div className='d-flex justify-content-center'>
                         <li className="nav-item">
                             <Link className="nav-link active" aria-current="page" to="/"><h4>Home</h4></Link>
                         </li>
@@ -33,9 +36,12 @@ const Navbar = () => {
                                 </span>
                             </Link>
                         </li>
+                        </div>
                     </ul>
-                </div>
+                {/* </div> */}
             </div>
+            {/* </div> */}
+
         </nav>
     );
 };
